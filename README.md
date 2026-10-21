@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- EDIT: your name and a one-line description for search results -->
-  <title>Your Name</title>
+  <title>Charles S. Kost</title>
   <meta name="description" content="Charles Kost is an MA Student at UCL interested in the intersection of language, politics and law.">
   <link rel="icon" href="images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
