@@ -3,41 +3,308 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Charles S. Kost </title>
+  <!-- EDIT: your name and a one-line description for search results -->
+  <title>Your Name</title>
+  <meta name="description" content="Charles Kost is an MA Student at UCL interested in the intersection of language, politics and law.">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
-    body {
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 0 16px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 18px;
-      line-height: 1.5;
-      color: #222;
+    :root {
+      --bg: #fdfdfc;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --rule: #e2e2e2;
+      --link: #1f5fa8;
+      --panel: #f4f4f2;
     }
-    h1 { margin-bottom: 0; }
-    h2 { border-bottom: 1px solid #ccc; margin-top: 32px; }
-    a { color: #1a4d8f; }
+    body.dark-mode {
+      --bg: #141416;
+      --text: #e8e8e6;
+      --muted: #9a9a9e;
+      --rule: #2e2e32;
+      --link: #8cb8f2;
+      --panel: #1e1e22;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      transition: background 0.2s, color 0.2s;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* page grid: narrow label column on the left, content on the right */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 24px 60px;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    /* header row: name | links | headshot */
+    .top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-weight: 500;
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 0;
+    }
+    /* alternate names appear on hover */
+    .alt-names {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 8px;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    h1:hover .alt-names { opacity: 1; }
+
+    .links { margin: 0; line-height: 1.9; }
+    .links details { margin-top: 2px; }
+    summary { cursor: pointer; color: var(--muted); }
+    summary:hover { color: var(--text); }
+    .links details a { display: block; padding-left: 14px; }
+
+    .headshot { text-align: right; }
+    .headshot img {
+      width: 75%;
+      max-width: 220px;
+      border-radius: 4px;
+    }
+
+    /* section labels in the left column */
+    .label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 3px;
+    }
+
+    .row p { margin: 0 0 14px; }
+    ol, ul { margin: 0; padding-left: 22px; }
+    li { margin-bottom: 16px; }
+    li::marker { color: var(--muted); }
+    .venue { font-style: italic; }
+    .status { color: var(--muted); }
+
+    /* abstract toggles */
+    li details { margin-top: 4px; }
+    li details summary { font-size: 0.9rem; }
+    li details p {
+      background: var(--panel);
+      border-left: 2px solid var(--rule);
+      padding: 12px 16px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .entry { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
+    .entry .when { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+    /* footer: extra line appears on hover */
+    .footer {
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      padding-top: 12px;
+    }
+    .footer-extra { opacity: 0; transition: opacity 0.25s; margin-left: 8px; }
+    .footer:hover .footer-extra { opacity: 1; }
+
+    /* dark mode toggle, fixed at top right */
+    #darkModeToggle {
+      cursor: pointer;
+      font-size: 24px;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 9999;
+      background: none;
+      border: none;
+      color: var(--text);
+      padding: 4px;
+      line-height: 1;
+    }
+
+    /* phones: stack everything into one column */
+    @media (max-width: 720px) {
+      .page { padding-top: 48px; }
+      .top, .row { grid-template-columns: 1fr; gap: 12px; }
+      .top { gap: 20px; }
+      .headshot { text-align: left; order: -1; }
+      .headshot img { width: 140px; }
+      .alt-names { opacity: 1; }
+      .row { margin-bottom: 32px; }
+    }
   </style>
 </head>
 <body>
- 
-  <h1>Charles Kost</h1>
-  <p>MA Student in Applied Linguistics </p>
- 
-  <h2>About</h2>
-  <p>Hac intellegentiae artificialis aetate, urgens fit humanam artem ab iis distinguere, quae machinis efficiuntur.</p>
- 
-  <h2>Education</h2>
-  <ul>
-    <li>MA/MSc, [Field], [University] (2023)</li>
-    <li>BA (Honors), Politics & International Affairs and French Studies, Wake Forest University (2026)</li>
-  </ul>
 
-  <h2>Projects</h2>
-  <ul>
-    <li>[Surname, Initial.] (2026). <i>[Title]</i>. [Journal]. <a href="#">PDF</a></li>
-    <li>[Project or working paper title] – [one-line description]</li>
-  </ul>
- 
+<!-- dark mode toggle, fixed at top right -->
+<button id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+
+<div class="page">
+
+  <!-- ============ HEADER: name | links | headshot ============ -->
+  <div class="top">
+    <h1>
+      Your Name
+      <span class="alt-names">[Full Legal Name];<br>[Nickname]</span>
+    </h1>
+
+    <p class="links">
+      <a href="mailto:you@university.edu">Email</a><br>
+      <a href="docs/cv.pdf" target="_blank">CV</a><br>
+      <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
+      <details>
+        <summary>More</summary>
+        <a href="https://orcid.org/" target="_blank">ORCID</a>
+        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+      </details>
+    </p>
+
+    <div class="headshot">
+      <!-- upload your photo to images/headshot.jpg; hidden automatically until you do -->
+      <img src="images/headshot.jpg" alt="Headshot of Your Name" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <!-- ============ INTRO ============ -->
+  <div class="row">
+    <div></div>
+    <div>
+      <p>
+        I'm an MA student in Applied Linguistics at UCL.
+      </p>
+      <p>
+        Hac intellegentiae artificialis aetate, urgens fit humanam artem ab iis distinguere, quae machinis efficiuntur
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ EDUCATION ============ -->
+  <div class="row">
+    <div class="label">Education</div>
+    <div>
+      <div class="entry"><span>MA, Applied Linguistics, Institute of Education, UCL </span><span class="when">2027</span></div>
+      <div class="entry"><span>BA, Politics & International Affairs and French Studies, Wake Forest University</span><span class="when">2026</span></div>
+    </div>
+  </div>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <div class="row">
+    <div class="label">Experience</div>
+    <div>
+      <div class="entry"><span>[Role], [Organisation]</span><span class="when">2025–</span></div>
+      <div class="entry"><span>[Role], [Organisation]</span><span class="when">2023–24</span></div>
+    </div>
+  </div>
+
+  <!-- ============ PUBLICATIONS ============ -->
+  <div class="row">
+    <div class="label">Publications</div>
+    <div>
+      <ol reversed>
+        <li>
+          <a href="#">"[Title of Published Article]"</a> (with <a href="#">[Co-author]</a>).
+          <span class="venue">[Journal Name]</span>.
+          <details>
+            <summary>Abstract</summary>
+            <p>[Paste the abstract here.]</p>
+          </details>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============ WORKING PAPERS ============ -->
+  <div class="row">
+    <div class="label">Working Papers</div>
+    <div>
+      <ol reversed>
+        <li>
+          "[Title of Working Paper]" (with [Co-author]). <span class="status">Under review.</span>
+          <details>
+            <summary>Abstract</summary>
+            <p>[Paste the abstract here.]</p>
+          </details>
+        </li>
+        <li>
+          "[Title of Working Paper]". <span class="status">Revise and resubmit at <span class="venue">[Journal]</span>.</span>
+          <details>
+            <summary>Abstract</summary>
+            <p>[Paste the abstract here.]</p>
+          </details>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============ RESEARCH IN PROGRESS ============ -->
+  <div class="row">
+    <div class="label">In Progress</div>
+    <div>
+      <ol reversed>
+        <li>"On [Topic]" (with [Co-author]).</li>
+        <li>"On [Topic]."</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="row">
+    <div></div>
+    <div class="footer">
+      Updated: October 2026
+      <span class="footer-extra">[Optional credit or note.]</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Start in dark mode if the visitor chose it before, otherwise follow their system setting
+  var toggle = document.getElementById("darkModeToggle");
+  var saved = null;
+  try { saved = localStorage.getItem("theme"); } catch (e) {}
+
+  function applyTheme() {
+    var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.body.classList.toggle("dark-mode", dark);
+  }
+  applyTheme();
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
+
+  toggle.addEventListener("click", function () {
+    var isDark = document.body.classList.toggle("dark-mode");
+    saved = isDark ? "dark" : "light";
+    try { localStorage.setItem("theme", saved); } catch (e) {}
+  });
+</script>
+
 </body>
 </html>
