@@ -187,8 +187,7 @@
     </p>
 
     <div class="headshot">
-      <!-- upload your photo to images/headshot.jpg; hidden automatically until you do -->
-      <img src="images/headshot.jpg" alt="CSK Headshot" onerror="this.style.display='none'">
+      <img src="headshot.jpg" alt="CSK Headshot" onerror="this.style.display='none'">
     </div>
   </div>
 
