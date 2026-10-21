@@ -1,8 +1,8 @@
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- EDIT: your name and a one-line description for search results -->
   <title>Charles S. Kost</title>
   <meta name="description" content="Charles Kost is an MA Student at UCL interested in the intersection of language, politics and law.">
   <link rel="icon" href="images/favicon.ico">
@@ -53,10 +53,10 @@
       margin-bottom: 40px;
     }
 
-    /* header row: name | links | headshot */
+    /* header row: name + headshot | links */
     .top {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 2fr;
       gap: 32px;
       align-items: start;
       margin-bottom: 24px;
@@ -85,10 +85,10 @@
     summary:hover { color: var(--text); }
     .links details a { display: block; padding-left: 14px; }
 
-    .headshot { text-align: right; }
+    .headshot { margin-top: 16px; }
     .headshot img {
-      width: 75%;
-      max-width: 220px;
+      width: 180px;
+      max-width: 100%;
       border-radius: 4px;
     }
 
@@ -153,7 +153,6 @@
       .page { padding-top: 48px; }
       .top, .row { grid-template-columns: 1fr; gap: 12px; }
       .top { gap: 20px; }
-      .headshot { text-align: left; order: -1; }
       .headshot img { width: 140px; }
       .alt-names { opacity: 1; }
       .row { margin-bottom: 32px; }
@@ -167,14 +166,20 @@
 
 <div class="page">
 
-  <!-- ============ HEADER: name | links | headshot ============ -->
+  <!-- ============ HEADER: name + headshot | links ============ -->
   <div class="top">
-    <h1>
-      Charles Kost
-      <span class="alt-names">Charles S. Kost;<br>Charlie</span>
-    </h1>
+    <div class="name-block">
+      <h1>
+        Charles Kost
+        <span class="alt-names">Charles S. Kost;<br>Charlie</span>
+      </h1>
+      <div class="headshot">
+        <img src="headshot.jpg" alt="Charles Kost headshot" onerror="this.style.display='none'">
+      </div>
+    </div>
 
     <p class="links">
+      <!-- EDIT: your real email address -->
       <a href="mailto:you@university.edu">Email</a><br>
       <a href="docs/cv.pdf" target="_blank">CV</a><br>
       <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
@@ -185,10 +190,6 @@
         <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
       </details>
     </p>
-
-    <div class="headshot">
-      <img src="headshot.jpg" alt="CSK Headshot" onerror="this.style.display='none'">
-    </div>
   </div>
 
   <!-- ============ INTRO ============ -->
@@ -208,8 +209,8 @@
   <div class="row">
     <div class="label">Education</div>
     <div>
-      <div class="entry"><span>MA, Applied Linguistics, Institute of Education, UCL </span><span class="when">2027</span></div>
-      <div class="entry"><span>BA, Politics & International Affairs and French Studies, Wake Forest University</span><span class="when">2026</span></div>
+      <div class="entry"><span>MA, Applied Linguistics, Institute of Education, UCL</span><span class="when">2027</span></div>
+      <div class="entry"><span>BA, Politics &amp; International Affairs and French Studies, Wake Forest University</span><span class="when">2026</span></div>
     </div>
   </div>
 
