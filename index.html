@@ -63,7 +63,7 @@
       grid-template-columns: 1fr 2fr;
       gap: 32px;
       align-items: start;
-      margin-bottom: 24px;
+      margin-bottom: 40px;
     }
     h1 {
       font-weight: 500;
@@ -108,7 +108,9 @@
       padding-top: 3px;
     }
 
-    .row p { margin: 0 0 14px; }
+    .intro { margin-top: 28px; }
+    .intro p { margin: 0 0 14px; }
+    .intro p:last-child { margin-bottom: 0; }
     ol, ul { margin: 0; padding-left: 22px; }
     li { margin-bottom: 16px; }
     li::marker { color: var(--muted); }
@@ -171,7 +173,7 @@
 
 <div class="page">
 
-  <!-- ============ HEADER: name + headshot | links ============ -->
+  <!-- ============ HEADER: name + headshot | links + intro ============ -->
   <div class="top">
     <div class="name-block">
       <h1>
@@ -183,30 +185,29 @@
       </div>
     </div>
 
-    <div class="links">
-  <a href="mailto:charles.kost.26@ucl.ac.uk">Email</a><br>
-  <a href="docs/cv.pdf" target="_blank">CV [WIP]</a>
-  <details>
-    <summary>More</summary>
-    <a href="https://orcid.org/0009-0009-6585-0077" target="_blank">ORCID</a>
-    <a href="https://linkedin.com/in/charleskost" target="_blank">LinkedIn</a>
-  </details>
-</div>
-  </div>
-
-  <!-- ============ INTRO ============ -->
-  <div class="row">
-    <div></div>
     <div>
-      <p>
-        I am currently an MA student in Applied Linguistics at the Institute of Education, University College London, interested in the intersection of language, politics, and law.
-      </p>
-      <p>
-        I study how language operates across political and legal institutions, with a particular focus on mono- and multilingual (nation-)states. I’ve also worked on the technical side of linguistics, integrating language models at a cybersecurity firm and transcribing child speech for speech-recognition research.
-      </p>
-      <p>
-        Hac intellegentiae artificialis aetate, urgens fit humanam artem ab iis distinguere, quae machinis efficiuntur
-      </p>
+      <div class="links">
+        <a href="mailto:charles.kost.26@ucl.ac.uk">Email</a><br>
+        <a href="docs/cv.pdf" target="_blank">CV [WIP]</a>
+        <details>
+          <summary>More</summary>
+          <a href="https://orcid.org/0009-0009-6585-0077" target="_blank">ORCID</a>
+          <a href="https://linkedin.com/in/charleskost" target="_blank">LinkedIn</a>
+        </details>
+      </div>
+
+      <!-- ============ INTRO ============ -->
+      <div class="intro">
+        <p>
+          I am currently an MA student in Applied Linguistics at the Institute of Education, University College London, interested in the intersection of language, politics, and law.
+        </p>
+        <p>
+          I study how language operates across political and legal institutions, with a particular focus on mono- and multilingual (nation-)states. I’ve also worked on the technical side of linguistics, integrating language models at a cybersecurity firm and transcribing child speech for speech-recognition research.
+        </p>
+        <p>
+          Hac intellegentiae artificialis aetate, urgens fit humanam artem ab iis distinguere, quae machinis efficiuntur
+        </p>
+      </div>
     </div>
   </div>
 
